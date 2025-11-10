@@ -1,0 +1,143 @@
+{
+  "llm": {
+    "default_model": "mixtral:8x7b-instruct-v0.1-q6_K",
+    "base_url": "http://127.0.0.1:11434",
+    "timeout": 600,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 40,
+    "repeat_penalty": 1.1,
+    "num_ctx": 8192,
+    "num_predict": -1,
+    "stop": []
+  },
+  "entry": {
+    "min_word_count": 11000,
+    "target_word_count": 12500,
+    "sections": [
+      {
+        "name": "Introduction",
+        "min_words": 1750,
+        "target_words": 1750,
+        "max_words": 2500,
+        "model": "mixtral:8x7b-instruct-v0.1-q6_K",
+        "temperature": 0.7
+      },
+      {
+        "name": "The Patristic Mind",
+        "min_words": 2250,
+        "target_words": 2250,
+        "max_words": 3000,
+        "model": "mixtral:8x7b-instruct-v0.1-q6_K",
+        "temperature": 0.65
+      },
+      {
+        "name": "Symphony of Clashes",
+        "min_words": 2350,
+        "target_words": 2350,
+        "max_words": 3200,
+        "model": "llama3.1:70b-instruct-q4_K_M",
+        "temperature": 0.75
+      },
+      {
+        "name": "Orthodox Affirmation",
+        "min_words": 2250,
+        "target_words": 2250,
+        "max_words": 3000,
+        "model": "mixtral:8x7b-instruct-v0.1-q6_K",
+        "temperature": 0.6
+      },
+      {
+        "name": "Synthesis",
+        "min_words": 1900,
+        "target_words": 1900,
+        "max_words": 2500,
+        "model": "llama3.1:70b-instruct-q4_K_M",
+        "temperature": 0.7
+      },
+      {
+        "name": "Conclusion",
+        "min_words": 1800,
+        "target_words": 1800,
+        "max_words": 2400,
+        "model": "mixtral:8x7b-instruct-v0.1-q6_K",
+        "temperature": 0.75
+      }
+    ]
+  },
+  "quality_tiers": {
+    "CELESTIAL": {
+      "min_score": 95,
+      "max_score": 100,
+      "description": "Exceptional theological depth and coherence - REQUIRED"
+    },
+    "ADAMANTINE": {
+      "min_score": 90,
+      "max_score": 94,
+      "description": "Outstanding quality - REJECTED, requires refinement"
+    },
+    "PLATINUM": {
+      "min_score": 85,
+      "max_score": 89,
+      "description": "Excellent comprehensive coverage - REJECTED"
+    },
+    "GOLD": {
+      "min_score": 80,
+      "max_score": 84,
+      "description": "Very good quality - REJECTED"
+    },
+    "SILVER": {
+      "min_score": 75,
+      "max_score": 79,
+      "description": "Good quality - REJECTED"
+    },
+    "BRONZE": {
+      "min_score": 70,
+      "max_score": 74,
+      "description": "Acceptable quality - REJECTED"
+    }
+  },
+  "validation": {
+    "weights": {
+      "word_count": 0.2,
+      "theological_depth": 0.3,
+      "coherence": 0.25,
+      "section_balance": 0.15,
+      "orthodox_perspective": 0.1
+    },
+    "strict_mode": true,
+    "min_patristic_citations": 20,
+    "min_scripture_references": 15,
+    "min_different_fathers": 5,
+    "min_named_works": 3,
+    "min_sections_with_patristic": 4
+  },
+  "quality_metrics": {
+    "thresholds": {
+      "diversity": 80.0,
+      "specificity": 70.0,
+      "integration": 70.0,
+      "distribution": 85.0
+    },
+    "weights": {
+      "diversity": 0.30,
+      "specificity": 0.25,
+      "integration": 0.20,
+      "distribution": 0.25
+    },
+    "accept_citation_authenticity": 0.90
+  },
+  "generation": {
+    "preprocessing_enabled": true,
+    "post_generation_refinement": true,
+    "auto_expand_short_sections": true,
+    "iterative_refinement_max_passes": 3,
+    "target_adherence_strict": true
+  },
+  "batch_processing": {
+    "cooldown_seconds": 300,
+    "thermal_threshold_celsius": 80,
+    "extended_cooldown_seconds": 600,
+    "max_concurrent_generations": 1
+  }
+}
