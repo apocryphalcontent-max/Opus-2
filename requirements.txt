@@ -1,0 +1,26 @@
+# Python Requirements for OPUS MAXIMUS DREAM ENGINE
+
+# Core dependencies
+pydantic>=2.0.0  # Data validation and settings management
+requests>=2.31.0  # HTTP library for Ollama API
+python-dotenv>=1.0.0  # Environment variable management
+
+# Optional but recommended
+numpy>=1.24.0  # Numerical operations for metrics
+regex>=2023.0.0  # Advanced regex for citation extraction
+
+# Development dependencies
+pytest>=7.4.0  # Testing framework
+pytest-cov>=4.1.0  # Code coverage
+black>=23.0.0  # Code formatting
+mypy>=1.5.0  # Type checking
+flake8>=6.1.0  # Linting
+
+# Documentation
+mkdocs>=1.5.0  # Documentation generator
+mkdocs-material>=9.0.0  # Material theme for docs
+
+# Optional: For advanced features
+# scikit-learn>=1.3.0  # Machine learning for citation pattern recognition
+# spacy>=3.6.0  # NLP for advanced text analysis
+# transformers>=4.30.0  # For embedding-based similarity checks
