@@ -1,0 +1,404 @@
+# Celestial Engine Configuration
+# Optimized generation system for CELESTIAL-tier theological entries
+
+engine:
+  name: "Celestial Entry Generation Engine"
+  version: "2.0.0"
+  description: "Advanced automated system for generating CELESTIAL-tier Orthodox theological entries"
+
+# Hardware Configuration (ROG Zephyrus Duo 4090)
+hardware:
+  gpu:
+    name: "NVIDIA RTX 4090 Mobile"
+    vram_gb: 16
+    cuda_cores: 9728
+    tensor_cores: 304
+  cpu:
+    cores: 16
+    threads: 32
+  ram_gb: 64
+  storage:
+    type: "NVMe SSD"
+    capacity_tb: 2
+
+# LLM Configuration
+llm:
+  provider: "ollama"
+  base_url: "http://127.0.0.1:11434"
+  timeout: 600
+  retry_attempts: 3
+  retry_delay: 5
+
+  models:
+    primary:
+      name: "mixtral:8x7b-instruct-v0.1-q6_K"
+      use_cases: ["introduction", "patristic_mind", "orthodox_affirmation", "conclusion"]
+      params:
+        temperature: 0.7
+        top_p: 0.9
+        top_k: 40
+        repeat_penalty: 1.1
+        num_ctx: 8192
+        num_predict: -1
+
+    advanced:
+      name: "llama3.1:70b-instruct-q4_K_M"
+      use_cases: ["symphony_of_clashes", "synthesis"]
+      params:
+        temperature: 0.75
+        top_p: 0.92
+        top_k: 45
+        repeat_penalty: 1.15
+        num_ctx: 8192
+        num_predict: -1
+
+    preprocessor:
+      name: "mixtral:8x7b-instruct-v0.1-q6_K"
+      use_cases: ["topic_analysis", "resource_gathering", "outline_generation"]
+      params:
+        temperature: 0.6
+        top_p: 0.85
+        top_k: 35
+        num_ctx: 8192
+
+    validator:
+      name: "llama3.1:70b-instruct-q4_K_M"
+      use_cases: ["quality_check", "refinement_analysis"]
+      params:
+        temperature: 0.5
+        top_p: 0.8
+        top_k: 30
+        num_ctx: 8192
+
+# Entry Structure Configuration
+entry:
+  target_tier: "CELESTIAL"
+  min_score: 95
+  max_score: 100
+
+  word_counts:
+    total_min: 11000
+    total_target: 12500
+    total_ideal: 14000
+    allow_expansion: true
+    expansion_limit: 20000
+
+  sections:
+    - name: "Introduction"
+      slug: "introduction"
+      min_words: 1500
+      target_words: 1750
+      max_words: 2000
+      model: "primary"
+      requirements:
+        - "Establish topic significance"
+        - "Provide Orthodox framing"
+        - "Include 2+ Patristic citations"
+        - "Reference Scripture 3+ times"
+        - "Preview structure"
+
+    - name: "The Patristic Mind"
+      slug: "patristic_mind"
+      min_words: 2000
+      target_words: 2250
+      max_words: 2500
+      model: "primary"
+      requirements:
+        - "Cite 8+ different Church Fathers"
+        - "Name 3+ specific Patristic works"
+        - "Deep theological exposition"
+        - "Historical context"
+        - "Orthodox distinctives"
+
+    - name: "Symphony of Clashes"
+      slug: "symphony_of_clashes"
+      min_words: 2000
+      target_words: 2350
+      max_words: 2500
+      model: "advanced"
+      requirements:
+        - "Present 3+ theological tensions"
+        - "Show Patristic synthesis"
+        - "Dialectical sophistication"
+        - "Resolve apparent contradictions"
+        - "Demonstrate Orthodox coherence"
+
+    - name: "Orthodox Affirmation"
+      slug: "orthodox_affirmation"
+      min_words: 2000
+      target_words: 2250
+      max_words: 2500
+      model: "primary"
+      requirements:
+        - "Contrast with Western theology (3+ points)"
+        - "Liturgical connections"
+        - "Lived Orthodox experience"
+        - "Sacramental theology"
+        - "Patristic grounding (4+ citations)"
+
+    - name: "Synthesis"
+      slug: "synthesis"
+      min_words: 1500
+      target_words: 1900
+      max_words: 2000
+      model: "advanced"
+      requirements:
+        - "Integrate all sections"
+        - "Show theological coherence"
+        - "Practical application"
+        - "Patristic synthesis (2+ citations)"
+        - "Forward-looking conclusions"
+
+    - name: "Conclusion"
+      slug: "conclusion"
+      min_words: 1500
+      target_words: 1800
+      max_words: 2000
+      model: "primary"
+      requirements:
+        - "Summarize key insights"
+        - "Final Patristic word"
+        - "Call to Orthodox life"
+        - "Theological doxology"
+        - "Leave reader transformed"
+
+# Validation Configuration
+validation:
+  tiers:
+    CELESTIAL:
+      min_score: 95
+      max_score: 100
+      description: "Publication-ready, exemplary Orthodox theological exposition"
+      badge: "🌟"
+    ADAMANTINE:
+      min_score: 90
+      max_score: 94
+      description: "Excellent quality but insufficient for corpus"
+      badge: "💎"
+    PLATINUM:
+      min_score: 85
+      max_score: 89
+      description: "Good quality but below standard"
+      badge: "🥈"
+    GOLD:
+      min_score: 80
+      max_score: 84
+      description: "Acceptable for drafts only"
+      badge: "🥇"
+    SILVER:
+      min_score: 75
+      max_score: 79
+      description: "Needs significant work"
+      badge: "⚪"
+    BRONZE:
+      min_score: 70
+      max_score: 74
+      description: "Major deficiencies"
+      badge: "🥉"
+
+  criteria:
+    word_count:
+      weight: 0.20
+      checks:
+        - "total_words >= min_word_count"
+        - "all sections >= section_min"
+        - "no section vastly dominates"
+
+    theological_depth:
+      weight: 0.30
+      checks:
+        - "patristic_citations >= 20"
+        - "scripture_references >= 15"
+        - "orthodox_terms >= 15"
+        - "specific_works >= 3"
+        - "unique_fathers >= 5"
+
+    coherence:
+      weight: 0.25
+      checks:
+        - "logical_flow_score >= 80"
+        - "cross_references >= 5"
+        - "section_transitions_smooth"
+        - "narrative_cohesion >= 85"
+
+    section_balance:
+      weight: 0.15
+      checks:
+        - "all_sections_meet_minimum"
+        - "balance_variance < 0.3"
+        - "no_section_below_500"
+
+    orthodox_perspective:
+      weight: 0.10
+      checks:
+        - "orthodox_framing >= 10"
+        - "western_contrasts >= 3"
+        - "liturgical_references >= 5"
+        - "lived_experience >= 5"
+
+  quality_metrics:
+    diversity:
+      threshold: 80
+      weight: 0.30
+      description: "Citation breadth across Patristic tradition"
+
+    specificity:
+      threshold: 70
+      weight: 0.25
+      description: "Named works and precise citations"
+
+    integration:
+      threshold: 70
+      weight: 0.20
+      description: "Citations distributed across sections"
+
+    distribution:
+      threshold: 85
+      weight: 0.25
+      description: "Patristic content in all sections"
+
+# Preprocessing Configuration
+preprocessing:
+  enabled: true
+
+  topic_analysis:
+    enabled: true
+    extract_keywords: true
+    identify_complexity: true
+    estimate_word_count: true
+    suggest_structure: true
+
+  resource_gathering:
+    enabled: true
+    patristic_database:
+      path: "data/patristic_works.json"
+      auto_suggest: true
+    scripture_database:
+      path: "data/scripture_references.json"
+      auto_suggest: true
+    theological_terms:
+      path: "data/orthodox_terms.json"
+      auto_suggest: true
+
+  outline_generation:
+    enabled: true
+    detail_level: "comprehensive"
+    include_citations: true
+    include_structure: true
+
+# Refinement Configuration
+refinement:
+  max_iterations: 5
+  target_score: 95
+
+  strategies:
+    - name: "enhance_theological_depth"
+      priority: 1
+      triggers:
+        - "theological_depth < 85"
+        - "patristic_citations < 20"
+      actions:
+        - "add_patristic_citations"
+        - "specify_works"
+        - "deepen_exposition"
+
+    - name: "expand_sections"
+      priority: 2
+      triggers:
+        - "word_count < min_word_count"
+        - "any_section < section_min"
+      actions:
+        - "expand_short_sections"
+        - "add_supporting_material"
+
+    - name: "improve_coherence"
+      priority: 3
+      triggers:
+        - "coherence < 80"
+      actions:
+        - "add_transitions"
+        - "create_cross_references"
+        - "strengthen_narrative"
+
+    - name: "balance_sections"
+      priority: 4
+      triggers:
+        - "section_balance < 80"
+      actions:
+        - "redistribute_content"
+        - "expand_underdeveloped"
+
+    - name: "strengthen_orthodox_perspective"
+      priority: 5
+      triggers:
+        - "orthodox_perspective < 85"
+      actions:
+        - "add_orthodox_framing"
+        - "contrast_western_theology"
+        - "connect_to_liturgy"
+
+# Batch Processing Configuration
+batch:
+  enabled: true
+  parallel_workers: 3
+  queue_size: 100
+  checkpoint_interval: 10
+
+  scheduling:
+    mode: "continuous"  # continuous, scheduled, on-demand
+    work_hours: [0, 23]  # 24/7 operation
+    pause_on_error: false
+    retry_failed: true
+
+  resource_management:
+    gpu_memory_threshold: 0.9
+    cpu_threshold: 0.85
+    temperature_threshold: 85
+    cool_down_period: 300
+
+# Monitoring Configuration
+monitoring:
+  enabled: true
+  log_level: "INFO"
+
+  metrics:
+    track_generation_time: true
+    track_validation_scores: true
+    track_refinement_iterations: true
+    track_resource_usage: true
+    track_quality_metrics: true
+
+  alerts:
+    enabled: true
+    temperature_warning: 80
+    temperature_critical: 90
+    memory_warning: 0.85
+    memory_critical: 0.95
+    score_below_target: 90
+
+  reporting:
+    interval: 3600  # hourly
+    summary_stats: true
+    quality_distribution: true
+    performance_metrics: true
+
+# Storage Configuration
+storage:
+  entries_dir: "data/entries"
+  logs_dir: "data/logs"
+  cache_dir: "data/cache"
+  checkpoints_dir: "data/checkpoints"
+
+  format: "markdown"
+  include_metadata: true
+  compress_old_logs: true
+  retention_days: 90
+
+# Advanced Features
+features:
+  auto_recovery: true
+  resume_on_restart: true
+  distributed_generation: false
+  web_interface: false
+  api_server: false
+  real_time_preview: false

@@ -1,0 +1,48 @@
+# Example Topics for Celestial Engine
+# Lines starting with # are comments and will be skipped
+# One topic per line
+
+# Trinitarian Theology
+The Trinity as Foundation of Orthodox Theology
+The Monarchy of the Father in Trinitarian Theology
+Perichoresis and the Divine Dance
+
+# Christology
+The Hypostatic Union and Chalcedonian Christology
+The Theotokos and Orthodox Mariology
+Christ as Logos and Divine Wisdom
+
+# Soteriology
+Theosis: Deification in Orthodox Theology
+The Essence-Energies Distinction and Salvation
+Synergy: Divine Grace and Human Freedom
+
+# Mystical Theology
+The Apophatic Way and Divine Unknowability
+Hesychasm and the Jesus Prayer
+The Vision of the Uncreated Light
+
+# Theological Anthropology
+The Image and Likeness of God
+The Fall and Its Consequences
+The Human Person as Hypostasis
+
+# Ecclesiology
+The Church as Body of Christ
+Apostolic Succession and Episcopal Authority
+Conciliarity and Synodality in Orthodox Life
+
+# Liturgical Theology
+The Divine Liturgy as Heaven on Earth
+The Sacramental Mysteries of the Church
+Iconography and Sacred Art
+
+# Patristic Themes
+St. Maximus the Confessor on the Cosmic Christ
+St. Gregory of Nyssa on Human Perfection
+St. Gregory Palamas and the Palamite Synthesis
+
+# Modern Challenges
+Orthodox Theology and Modern Science
+The Orthodox Response to Secularism
+Technology and Orthodox Spiritual Life
