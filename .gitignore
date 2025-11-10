@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Generated content
+output/
+generated_entries/
+*.md.bak
+
+# Logs
+*.log
+logs/
+batch_log_*.txt
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Model files (too large for git)
+models/
+*.gguf
+*.safetensors
+
+# Data (generated)
+data/generated/
+data/temp/
+
+# Documentation builds
+docs/_build/
+site/
+
+# OS
+Thumbs.db
+desktop.ini
